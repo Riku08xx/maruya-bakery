@@ -1,0 +1,831 @@
+/* =========================================
+   まるや製パン  見た目の設定
+   色を変えたいときは、下の「色の設定」を書きかえるだけでOK
+   ========================================= */
+
+/* ----- 色の設定 ----- */
+:root {
+  --cream: #f5ead2;      /* 背景のクリーム色 */
+  --paper: #fbf5e6;      /* カードの紙色 */
+  --brick: #a63d2a;      /* 赤レンガ色（看板・強調） */
+  --choco: #3d2817;      /* こげ茶（文字） */
+  --mustard: #d6a043;    /* からし色（アクセント） */
+  --green: #4a6741;      /* 深緑（地図など） */
+}
+
+/* ----- 全体 ----- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--choco);
+  font-family: "Kaisei Opti", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  line-height: 1.8;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ----- しましまの日よけ ----- */
+.awning {
+  height: 48px;
+  background: repeating-linear-gradient(90deg, var(--brick) 0 40px, var(--paper) 40px 80px);
+  /* 下のふちを波型にする */
+  -webkit-mask: radial-gradient(circle 20px at 20px 28px, #000 98%, transparent) 0 0 / 40px 48px repeat-x,
+                linear-gradient(#000, #000) 0 0 / 100% 28px no-repeat;
+          mask: radial-gradient(circle 20px at 20px 28px, #000 98%, transparent) 0 0 / 40px 48px repeat-x,
+                linear-gradient(#000, #000) 0 0 / 100% 28px no-repeat;
+}
+
+/* ----- お店の紹介（一番上） ----- */
+.hero {
+  text-align: center;
+  padding: 32px 16px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.since {
+  display: table;          /* 看板の上に1行で置く */
+  margin: 0 auto 16px;
+  padding: 2px 16px;
+  border-top: 2px solid var(--choco);
+  border-bottom: 2px solid var(--choco);
+  letter-spacing: 0.3em;
+  font-size: 0.9rem;
+}
+
+/* 看板風のロゴ */
+.sign {
+  font-family: "Dela Gothic One", "Hiragino Sans", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 9vw, 4.5rem);
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  color: var(--paper);
+  background: var(--brick);
+  display: inline-block;
+  margin: 0;
+  padding: 12px 36px;
+  border: 4px solid var(--brick);
+  outline: 3px solid var(--choco);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 4px var(--paper) inset;
+  text-shadow: 3px 3px 0 var(--choco);
+}
+
+.catch {
+  margin: 28px 0 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ----- 写真の枠（写真がないときは「写真をここに」と表示） ----- */
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 10px, rgba(61, 40, 23, 0.06) 10px 20px),
+    #e8d6b0;
+  border: 2px dashed rgba(61, 40, 23, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.photo-hero {
+  aspect-ratio: 16 / 7;
+  border: 3px solid var(--choco);
+  border-radius: 4px;
+  /* 古い写真っぽい白ふち */
+  box-shadow: 0 0 0 8px var(--paper), 0 0 0 10px var(--choco);
+  margin: 10px;
+}
+
+.photo-label {
+  text-align: center;
+  color: rgba(61, 40, 23, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ほんのりセピア色にしてレトロ感を出す */
+  filter: sepia(0.25) saturate(1.1);
+}
+
+/* ----- メニューの見出しリンク ----- */
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 14px 16px;
+  margin-top: 16px;
+  background: var(--choco);
+}
+
+.nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.nav a:hover { color: var(--mustard); }
+
+/* ----- 各コーナー共通 ----- */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 16px;
+}
+
+/* 見出し：左右に線が入るレトロな形 */
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 32px;
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  color: var(--brick);
+  letter-spacing: 0.15em;
+}
+
+.heading::before,
+.heading::after {
+  content: "";
+  flex: 1;
+  border-top: 3px double var(--choco);
+}
+
+/* ----- おしらせ（お店の掲示板風） ----- */
+.news-board {
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  box-shadow: 5px 5px 0 var(--choco);
+  padding: 8px 24px 20px;
+  position: relative;
+}
+
+/* 掲示板の画びょう */
+.news-board::before,
+.news-board::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--brick);
+  border: 2px solid var(--choco);
+}
+.news-board::before { left: 20px; }
+.news-board::after  { right: 20px; }
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 7.5em 1fr;
+  column-gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px dashed rgba(61, 40, 23, 0.4);
+}
+
+/* 「もっと見る」を押すまでかくしておく分 */
+.news-item[hidden],
+.news-more[hidden] { display: none; }
+
+.news-date {
+  font-weight: 700;
+  color: var(--brick);
+  letter-spacing: 0.05em;
+}
+
+.news-title {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.news-body {
+  grid-column: 2;
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+}
+
+.news-new {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 0 8px;
+  background: var(--mustard);
+  color: var(--choco);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 999px;
+  vertical-align: 0.15em;
+}
+
+.news-empty { padding: 16px 0; }
+
+.news-more {
+  display: block;
+  margin: 20px auto 0;
+  padding: 6px 28px;
+  background: var(--choco);
+  color: var(--paper);
+  border: none;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.news-more:hover { background: var(--brick); }
+
+/* スマホでは日付を見出しの上に */
+@media (max-width: 560px) {
+  .news-item { grid-template-columns: 1fr; }
+  .news-body { grid-column: 1; }
+}
+
+/* ----- こだわり ----- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.about-item {
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  padding: 20px;
+  text-align: center;
+}
+
+.about-num {
+  display: inline-block;
+  margin: 0;
+  padding: 0 12px;
+  background: var(--mustard);
+  color: var(--choco);
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.about-item h3 {
+  margin: 8px 0 4px;
+  font-size: 1.3rem;
+}
+
+.about-item p:last-child { margin: 0; }
+
+/* ----- パンのメニュー ----- */
+.section-menu {
+  max-width: none;
+  background:
+    radial-gradient(circle at 10px 10px, rgba(166, 61, 42, 0.12) 2px, transparent 2.5px) 0 0 / 20px 20px,
+    #efe0c0;
+}
+
+.section-menu > * {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  padding: 12px 12px 20px;
+  box-shadow: 5px 5px 0 var(--choco);
+}
+
+.card h3 {
+  margin: 14px 0 4px;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* 値札：丸いシール風 */
+.price {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  margin: 0 !important;
+  background: var(--brick);
+  color: var(--paper);
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  outline: 2px solid var(--brick);
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 1.3rem !important;
+  line-height: 1;
+  transform: rotate(8deg);
+  z-index: 1;
+}
+
+.price small { font-size: 0.7rem; }
+
+/* 画面がページの幅（960px＋左右の余白）より狭いときは、値札をカードの内側に寄せる（横にはみ出さないように） */
+@media (max-width: 1000px) {
+  .price { right: -6px; }
+}
+
+/* ----- 営業時間・地図 ----- */
+.access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+.info {
+  margin: 0;
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  padding: 8px 24px;
+}
+
+.info dt {
+  margin-top: 14px;
+  font-weight: 700;
+  color: var(--brick);
+}
+
+.info dd {
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(61, 40, 23, 0.4);
+  font-size: 1.1rem;
+}
+
+.info dd:last-child { border-bottom: none; }
+
+/* 手描き風の地図（押すと Google マップが開くリンク） */
+.map {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #e9dfc0;
+  border: 3px solid var(--choco);
+  border-radius: 4px;
+  overflow: hidden;
+  font-weight: 700;
+}
+
+.road { position: absolute; background: var(--paper); }
+.road-h { left: 0; right: 0; top: 55%; height: 14%; border-top: 2px solid var(--choco); border-bottom: 2px solid var(--choco); }
+.road-v { top: 0; bottom: 0; left: 22%; width: 12%; border-left: 2px solid var(--choco); border-right: 2px solid var(--choco); }
+
+/* 線路（しましま） */
+.rail {
+  position: absolute;
+  top: 0; bottom: 0; left: 6%;
+  width: 6%;
+  background: repeating-linear-gradient(180deg, var(--choco) 0 10px, var(--paper) 10px 20px);
+  border: 2px solid var(--choco);
+}
+
+.map-label {
+  position: absolute;
+  font-size: 0.85rem;
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.station { top: 8%; left: 14%; }
+.street  { top: 57.5%; left: 40%; border: none; background: transparent; letter-spacing: 0.2em; }
+.post    { top: 76%; right: 10%; }
+
+.map-shop {
+  position: absolute;
+  top: 26%;
+  right: 12%;
+  padding: 8px 12px;
+  background: var(--brick);
+  color: var(--paper);
+  border: 3px solid var(--choco);
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  box-shadow: 4px 4px 0 var(--choco);
+}
+
+.map-shop::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-top-color: var(--choco);
+}
+
+/* 地図の左下の「Googleマップで開く」札 */
+.map-open {
+  position: absolute;
+  left: 4%;
+  bottom: 4%;
+  padding: 4px 10px;
+  background: var(--mustard);
+  color: var(--choco);
+  border: 2px solid var(--choco);
+  font-size: 0.85rem;
+}
+
+/* マウスを乗せたとき・キーボードで選んだときに、少し浮き上がる */
+.map:hover,
+.map:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--choco);
+}
+
+/* ----- いちばん下 ----- */
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  background: var(--brick);
+  color: var(--paper);
+  font-size: 0.85rem;
+}
+
+.footer-sign {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  margin: 0 0 4px;
+}
+
+/* ----- 開いたときの演出（intro.js） ----- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  overflow: hidden;
+  background: var(--cream);
+  cursor: pointer;
+  transition: opacity 0.6s;
+  /* 万一プログラムが動かなくても、4秒たったら自動で消える */
+  animation: intro-safety 0.6s 4s forwards;
+}
+
+.intro.intro-hide { opacity: 0; pointer-events: none; }
+
+@keyframes intro-safety {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* 「動きを減らす」設定の人には出さない */
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+}
+
+.intro-breads {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+}
+
+/* 飛び出すパン（丸いシール風） */
+.intro-bread {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: none;   /* 全体の「img は親の幅まで」を打ち消す（入れ物の幅が0なので） */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  outline: 2px solid var(--choco);
+  background: var(--mustard);
+  box-shadow: 3px 3px 0 rgba(61, 40, 23, 0.35);
+}
+
+.intro-sign {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 10px 28px;
+  font-family: "Dela Gothic One", "Hiragino Sans", sans-serif;
+  font-size: clamp(2rem, 9vw, 4rem);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: var(--paper);
+  background: var(--brick);
+  border: 4px solid var(--brick);
+  outline: 3px solid var(--choco);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 4px var(--paper) inset;
+  text-shadow: 3px 3px 0 var(--choco);
+  animation: intro-pop 0.6s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+
+.intro-sub {
+  position: relative;
+  z-index: 1;
+  margin: 22px 0 0;
+  padding: 2px 14px;
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  animation: intro-pop 0.6s 0.25s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+
+@keyframes intro-pop {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ----- 本日のパン：押せるカード ----- */
+.menu-hint {
+  text-align: center;
+  margin: -16px auto 28px;
+  font-size: 0.95rem;
+}
+
+.card[data-bread] {
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card[data-bread]:hover,
+.card[data-bread]:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--choco);
+  outline: none;
+}
+
+/* ----- パンを押したときに出る窓 ----- */
+.bread-dialog {
+  width: min(560px, calc(100% - 24px));
+  max-height: calc(100% - 24px);
+  padding: 0;
+  border: 3px solid var(--choco);
+  background: var(--paper);
+  color: var(--choco);
+  box-shadow: 8px 8px 0 var(--choco);
+  overflow-y: auto;
+}
+
+.bread-dialog::backdrop { background: rgba(61, 40, 23, 0.6); }
+
+.bd-inner { position: relative; }
+
+.bd-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  background: var(--choco);
+  color: var(--paper);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bd-close:hover { background: var(--brick); }
+
+.bd-photo { aspect-ratio: 4 / 3; background: #e8d6b0; }
+
+.bd-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.25) saturate(1.1);
+}
+
+.bd-body { padding: 18px 22px 24px; }
+
+.bd-name {
+  display: inline-block;
+  margin: 0 12px 0 0;
+  font-size: 1.5rem;
+}
+
+.bd-price {
+  display: inline-block;
+  margin: 0;
+  padding: 2px 12px;
+  background: var(--brick);
+  color: var(--paper);
+  font-family: "Dela Gothic One", sans-serif;
+  border-radius: 999px;
+  vertical-align: 0.2em;
+}
+
+.bd-text { margin: 10px 0 0; }
+
+.bd-sub {
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 6px solid var(--mustard);
+  font-size: 1.05rem;
+}
+
+.bd-drink {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--cream);
+  border: 2px dashed rgba(61, 40, 23, 0.4);
+}
+
+.bd-drink-name {
+  display: block;
+  color: var(--brick);
+  font-size: 1.1rem;
+}
+
+.bd-others {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* 押すとそのパンに切りかわるボタン */
+.bd-other {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: var(--cream);
+  border: 2px solid var(--choco);
+  color: var(--choco);
+  font: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.bd-other:hover { background: #f0dfbc; }
+
+.bd-other img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: sepia(0.25) saturate(1.1);
+}
+
+.bd-other strong { font-size: 0.95rem; }
+
+.bd-other-price {
+  align-self: flex-start;
+  padding: 0 10px;
+  background: var(--brick);
+  color: var(--paper);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .bd-body { padding: 14px 16px 20px; }
+  .bd-name { font-size: 1.3rem; }
+}
+
+/* ----- トップの「こだわり」：カードと「もっと詳しく」ボタン ----- */
+a.about-item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.about-item:hover,
+a.about-item:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--choco);
+}
+
+.about-item .about-more {
+  margin: 10px 0 0;
+  color: var(--brick);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.more-link {
+  display: table;
+  margin: 28px auto 0;
+  padding: 8px 28px;
+  background: var(--choco);
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.more-link:hover { background: var(--brick); }
+
+/* ===== こだわりページ（kodawari.html） ===== */
+.hero-sub { padding-bottom: 32px; }
+
+/* スマホでも1行におさまる大きさ */
+.sign-sub {
+  font-size: clamp(1.4rem, 6vw, 3.2rem);
+  padding: 12px 24px;
+  white-space: nowrap;
+}
+
+.detail {
+  background: var(--paper);
+  border: 2px solid var(--choco);
+  box-shadow: 5px 5px 0 var(--choco);
+  padding: 24px;
+}
+
+.detail p { margin: 0 0 14px; }
+
+.detail-lead {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brick);
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(61, 40, 23, 0.4);
+}
+
+/* 小さな表（産地・時間など） */
+.detail-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  margin: 20px 0 0;
+  padding: 14px 18px;
+  background: var(--cream);
+  border: 2px solid var(--choco);
+}
+
+.detail-facts dt {
+  font-weight: 700;
+  color: var(--brick);
+}
+
+.detail-facts dd { margin: 0; }
+
+@media (max-width: 560px) {
+  .detail { padding: 18px; }
+  .detail-facts { grid-template-columns: 1fr; gap: 0; }
+  .detail-facts dd { margin-bottom: 8px; }
+}
+
+.back-top {
+  text-align: center;
+  margin: 0 0 56px;
+}
+
+.back-top a {
+  display: inline-block;
+  padding: 8px 28px;
+  background: var(--choco);
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.back-top a:hover { background: var(--brick); }

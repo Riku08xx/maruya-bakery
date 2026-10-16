@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>まるや製パン</title>
+  <!-- 文字のデザイン（Googleフォント）。ネットにつながっていないときは普通の文字で表示されます -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 開いたときの演出（パンがうわーっと出てくる）。動きは intro.js ===== -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-breads"></div>
+    <p class="intro-sign">まるや製パン</p>
+    <p class="intro-sub">焼きたて、できました！</p>
+  </div>
+  <script src="intro.js"></script>
+
+  <!-- ===== 上の日よけ（しましまのテント） ===== -->
+  <div class="awning" aria-hidden="true"></div>
+
+  <!-- ===== お店の紹介 ===== -->
+  <header class="hero">
+    <p class="since">創業 昭和三十八年</p>
+    <h1 class="sign">まるや製パン</h1>
+    <p class="catch">毎朝五時から、町のみなさんのパンを焼いています。</p>
+
+    <!-- 一番上の写真：images/hero.jpg（前のイラストは images/hero.svg に残してあります） -->
+    <div class="photo photo-hero">
+      <span class="photo-label">写真をここに<br><small>images/hero.jpg</small></span>
+      <img src="images/hero.jpg" alt="焼きたてのパンが棚いっぱいに並ぶ店内" onerror="this.remove()">
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#news">おしらせ</a>
+    <a href="kodawari.html">こだわり</a>
+    <a href="#menu">パンのご案内</a>
+    <a href="#access">営業時間・地図</a>
+  </nav>
+
+  <main>
+
+    <!-- ===== おしらせ（中身は news.js に書きます） ===== -->
+    <section id="news" class="section">
+      <h2 class="heading"><span>おしらせ</span></h2>
+      <div class="news-board">
+        <ul id="news-list" class="news-list"></ul>
+        <button id="news-more" class="news-more" type="button">もっと見る</button>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="heading"><span>まるやの こだわり</span></h2>
+      <!-- 押すと、くわしいページ（kodawari.html）の同じ項目へ移ります -->
+      <div class="about-grid">
+        <a class="about-item" href="kodawari.html#wheat">
+          <p class="about-num">其の一</p>
+          <h3>国産小麦</h3>
+          <p>北の大地の小麦を、毎朝お店の石臼でひいています。</p>
+          <p class="about-more">くわしく見る ▶</p>
+        </a>
+        <a class="about-item" href="kodawari.html#anko">
+          <p class="about-num">其の二</p>
+          <h3>手づくりあんこ</h3>
+          <p>北海道小豆を三代目のおかみが前の晩からことこと炊きます。</p>
+          <p class="about-more">くわしく見る ▶</p>
+        </a>
+        <a class="about-item" href="kodawari.html#price">
+          <p class="about-num">其の三</p>
+          <h3>町のお値段</h3>
+          <p>毎日のおやつにできるよう、昔ながらのお値段を守っています。</p>
+          <p class="about-more">くわしく見る ▶</p>
+        </a>
+      </div>
+      <a class="more-link" href="kodawari.html">こだわりを もっと詳しく ▶</a>
+    </section>
+
+    <!-- ===== パンのメニュー ===== -->
+    <section id="menu" class="section section-menu">
+      <h2 class="heading"><span>本日のパン</span></h2>
+      <p class="menu-hint">パンを押すと、大きな写真と、合う飲み物・いっしょにおすすめのパンが見られます。</p>
+      <ul class="menu-grid">
+        <li class="card" data-bread="anpan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/anpan.jpg</small></span>
+            <img src="images/anpan.jpg" alt="あんぱん" onerror="this.remove()">
+          </div>
+          <h3>あんぱん</h3>
+          <p>おかみの炊いたつぶあんがぎっしり。桜の塩漬けがのっています。</p>
+          <p class="price">160<small>円</small></p>
+        </li>
+        <li class="card" data-bread="melonpan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/melonpan.jpg</small></span>
+            <img src="images/melonpan.jpg" alt="メロンパン" onerror="this.remove()">
+          </div>
+          <h3>メロンパン</h3>
+          <p>さくさくのクッキー生地。焼きあがりの時間はすぐ売り切れます。</p>
+          <p class="price">150<small>円</small></p>
+        </li>
+        <li class="card" data-bread="currypan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/currypan.jpg</small></span>
+            <img src="images/currypan.jpg" alt="カレーパン" onerror="this.remove()">
+          </div>
+          <h3>カレーパン</h3>
+          <p>店主こだわりの甘口カレー。揚げたてをどうぞ。</p>
+          <p class="price">180<small>円</small></p>
+        </li>
+        <li class="card" data-bread="shokupan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/shokupan.jpg</small></span>
+            <img src="images/shokupan.jpg" alt="食パン" onerror="this.remove()">
+          </div>
+          <h3>食パン（一斤）</h3>
+          <p>ふんわりもちもち。厚切りトーストがおすすめです。</p>
+          <p class="price">320<small>円</small></p>
+        </li>
+        <li class="card" data-bread="creampan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/creampan.jpg</small></span>
+            <img src="images/creampan.jpg" alt="クリームパン" onerror="this.remove()">
+          </div>
+          <h3>クリームパン</h3>
+          <p>たまごたっぷりの自家製カスタード入り。</p>
+          <p class="price">160<small>円</small></p>
+        </li>
+        <li class="card" data-bread="koppepan">
+          <div class="photo">
+            <span class="photo-label">写真をここに<br><small>images/koppepan.jpg</small></span>
+            <img src="images/koppepan.jpg" alt="コッペパン" onerror="this.remove()">
+          </div>
+          <h3>コッペパン</h3>
+          <p>ジャム・バター・ピーナッツからお選びください。その場で塗ります。</p>
+          <p class="price">130<small>円</small></p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== パンを押したときに出る窓（中身は menu.js が入れます） ===== -->
+    <dialog id="bread-dialog" class="bread-dialog" aria-labelledby="bd-name">
+      <div class="bd-inner">
+        <button class="bd-close" type="button" aria-label="閉じる">×</button>
+        <div class="bd-photo"><img src="" alt=""></div>
+        <div class="bd-body">
+          <h3 class="bd-name" id="bd-name"></h3>
+          <p class="bd-price"></p>
+          <p class="bd-text"></p>
+          <div class="bd-pairing">
+            <h4 class="bd-sub">このパンに合う飲み物</h4>
+            <p class="bd-drink"><strong class="bd-drink-name"></strong><span class="bd-drink-why"></span></p>
+            <h4 class="bd-sub">いっしょにどうぞ</h4>
+            <div class="bd-others"></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ===== 営業時間・場所 ===== -->
+    <section id="access" class="section">
+      <h2 class="heading"><span>営業時間・地図</span></h2>
+      <div class="access-grid">
+        <dl class="info">
+          <dt>営業時間</dt>
+          <dd>朝 7時 〜 夕方 6時<br><small>（売り切れ次第おしまい）</small></dd>
+          <dt>定休日</dt>
+          <dd>毎週 水曜日</dd>
+          <dt>住所</dt>
+          <dd>こむぎ市 ほんまち三丁目 2-1<br><small>※架空のお店です</small></dd>
+          <dt>最寄り駅</dt>
+          <dd>こむぎ駅 東口から歩いて5分</dd>
+        </dl>
+
+        <!-- 手描き風の地図（CSSで描いています）。押すと Google マップが開きます。
+             開く場所を変えたいときは、href の「query=」のうしろ（住所やお店の名前）を書きかえてください -->
+        <a class="map"
+           href="https://www.google.com/maps/search/?api=1&amp;query=こむぎ市 ほんまち三丁目 2-1"
+           target="_blank" rel="noopener"
+           aria-label="地図：こむぎ駅東口から商店街を進んだ先、郵便局の向かいにまるや製パン。押すとGoogleマップが開きます">
+          <div class="road road-h"></div>
+          <div class="road road-v"></div>
+          <div class="rail"></div>
+          <span class="map-label station">こむぎ駅</span>
+          <span class="map-label street">ほんまち商店街</span>
+          <span class="map-label post">〒 郵便局</span>
+          <span class="map-shop">まるや<br>製パン</span>
+          <span class="map-open">Googleマップで開く ▶</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-sign">まるや製パン</p>
+    <p>© まるや製パン（架空のお店です）</p>
+  </footer>
+
+  <!-- おしらせのデータ → 並べるプログラム の順に読みこみます -->
+  <script src="news.js"></script>
+  <script src="main.js"></script>
+  <!-- パンを押したときの「おすすめ」（データと動き） -->
+  <script src="menu.js"></script>
+</body>
+</html>

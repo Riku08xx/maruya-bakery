@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <!-- お店の棚に焼きたてのパンが並ぶようす（イラスト） -->
+  <defs>
+    <radialGradient id="b1" cx="40%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#e3a258"/>
+      <stop offset="0.6" stop-color="#b76a2c"/>
+      <stop offset="1" stop-color="#7d3b14"/>
+    </radialGradient>
+    <radialGradient id="b2" cx="40%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#fbe4a0"/>
+      <stop offset="0.6" stop-color="#e8b85a"/>
+      <stop offset="1" stop-color="#b9802f"/>
+    </radialGradient>
+    <radialGradient id="b3" cx="40%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#d9893f"/>
+      <stop offset="0.55" stop-color="#a8521f"/>
+      <stop offset="1" stop-color="#6e3212"/>
+    </radialGradient>
+    <pattern id="wall" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#f3e3bf"/>
+      <circle cx="20" cy="20" r="2.5" fill="#e2cc9c"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="350" fill="url(#wall)"/>
+
+  <!-- 窓と朝の光 -->
+  <rect x="560" y="30" width="190" height="130" fill="#fbe9b8" stroke="#3d2817" stroke-width="5"/>
+  <path d="M655 30 V160 M560 95 H750" stroke="#3d2817" stroke-width="5"/>
+  <circle cx="700" cy="70" r="20" fill="#f2c14e"/>
+  <!-- 時計 -->
+  <circle cx="460" cy="85" r="38" fill="#fbf4e2" stroke="#3d2817" stroke-width="5"/>
+  <path d="M460 85 V60 M460 85 L478 92" stroke="#3d2817" stroke-width="4" stroke-linecap="round"/>
+  <!-- 黒板 -->
+  <rect x="60" y="30" width="200" height="110" fill="#3f4a3a" stroke="#7a4a22" stroke-width="8"/>
+  <text x="160" y="78" text-anchor="middle" font-size="26" fill="#fbf4e2" font-family="sans-serif" font-weight="700">やきたて</text>
+  <text x="160" y="115" text-anchor="middle" font-size="18" fill="#f2c14e" font-family="sans-serif">あさ 7時から</text>
+
+  <!-- 木の棚 -->
+  <rect x="0" y="250" width="800" height="100" fill="#8a5a2b"/>
+  <rect x="0" y="240" width="800" height="18" fill="#a8743d" stroke="#3d2817" stroke-width="4"/>
+  <path d="M0 290 H800 M0 320 H800" stroke="#6e4520" stroke-width="2"/>
+
+  <!-- トレイ1：あんぱん -->
+  <rect x="40" y="225" width="220" height="20" rx="4" fill="#cfcfc4" stroke="#3d2817" stroke-width="4"/>
+  <ellipse cx="90" cy="205" rx="42" ry="30" fill="url(#b3)" stroke="#3d2817" stroke-width="4"/>
+  <ellipse cx="180" cy="205" rx="42" ry="30" fill="url(#b3)" stroke="#3d2817" stroke-width="4"/>
+  <circle cx="90" cy="186" r="6" fill="#e9a3ad" stroke="#a63d2a" stroke-width="2"/>
+  <circle cx="180" cy="186" r="6" fill="#e9a3ad" stroke="#a63d2a" stroke-width="2"/>
+
+  <!-- トレイ2：メロンパン -->
+  <rect x="290" y="225" width="220" height="20" rx="4" fill="#cfcfc4" stroke="#3d2817" stroke-width="4"/>
+  <ellipse cx="345" cy="200" rx="44" ry="34" fill="url(#b2)" stroke="#3d2817" stroke-width="4"/>
+  <ellipse cx="455" cy="200" rx="44" ry="34" fill="url(#b2)" stroke="#3d2817" stroke-width="4"/>
+  <path d="M320 180 L370 225 M340 170 L385 210 M370 168 L310 222 M390 185 L335 232" stroke="#b9802f" stroke-width="3"/>
+  <path d="M430 180 L480 225 M450 170 L495 210 M480 168 L420 222 M500 185 L445 232" stroke="#b9802f" stroke-width="3"/>
+
+  <!-- トレイ3：コッペパンと食パン -->
+  <rect x="540" y="225" width="230" height="20" rx="4" fill="#cfcfc4" stroke="#3d2817" stroke-width="4"/>
+  <rect x="555" y="190" width="110" height="36" rx="18" fill="url(#b1)" stroke="#3d2817" stroke-width="4"/>
+  <path d="M680 226 V180 Q680 155 705 155 Q718 140 731 155 Q756 155 756 180 V226 Z" fill="url(#b1)" stroke="#3d2817" stroke-width="4"/>
+
+  <!-- 値札 -->
+  <g font-family="sans-serif" font-weight="700" font-size="16" text-anchor="middle">
+    <rect x="115" y="262" width="70" height="28" fill="#fbf4e2" stroke="#3d2817" stroke-width="3"/>
+    <text x="150" y="282" fill="#a63d2a">160円</text>
+    <rect x="365" y="262" width="70" height="28" fill="#fbf4e2" stroke="#3d2817" stroke-width="3"/>
+    <text x="400" y="282" fill="#a63d2a">150円</text>
+    <rect x="620" y="262" width="70" height="28" fill="#fbf4e2" stroke="#3d2817" stroke-width="3"/>
+    <text x="655" y="282" fill="#a63d2a">130円</text>
+  </g>
+</svg>

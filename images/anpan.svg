@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- あんぱん（イラスト） -->
+  <defs>
+    <radialGradient id="bun" cx="40%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#d9893f"/>
+      <stop offset="0.55" stop-color="#a8521f"/>
+      <stop offset="1" stop-color="#6e3212"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="#f3e3bf"/>
+  <circle cx="20" cy="20" r="3" fill="#e2cc9c"/><circle cx="380" cy="40" r="3" fill="#e2cc9c"/><circle cx="40" cy="270" r="3" fill="#e2cc9c"/><circle cx="360" cy="260" r="3" fill="#e2cc9c"/>
+  <!-- お皿 -->
+  <ellipse cx="200" cy="215" rx="165" ry="45" fill="#3d2817" opacity="0.15"/>
+  <ellipse cx="200" cy="205" rx="160" ry="42" fill="#fbf4e2" stroke="#3d2817" stroke-width="4"/>
+  <ellipse cx="200" cy="205" rx="125" ry="30" fill="none" stroke="#c9a96a" stroke-width="2"/>
+  <!-- パン -->
+  <ellipse cx="200" cy="170" rx="115" ry="78" fill="url(#bun)" stroke="#3d2817" stroke-width="4"/>
+  <path d="M120 135 Q150 105 195 100" fill="none" stroke="#f5c98b" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <!-- 桜の塩漬け -->
+  <g transform="translate(200 112)">
+    <g fill="#e9a3ad" stroke="#a63d2a" stroke-width="2">
+      <ellipse rx="9" ry="15" transform="rotate(0) translate(0 -12)"/>
+      <ellipse rx="9" ry="15" transform="rotate(72) translate(0 -12)"/>
+      <ellipse rx="9" ry="15" transform="rotate(144) translate(0 -12)"/>
+      <ellipse rx="9" ry="15" transform="rotate(216) translate(0 -12)"/>
+      <ellipse rx="9" ry="15" transform="rotate(288) translate(0 -12)"/>
+    </g>
+    <circle r="5" fill="#a63d2a"/>
+  </g>
+  <!-- けしの実 -->
+  <g fill="#f7e7c4"><circle cx="160" cy="150" r="2.5"/><circle cx="245" cy="148" r="2.5"/><circle cx="230" cy="185" r="2.5"/><circle cx="170" cy="190" r="2.5"/><circle cx="205" cy="160" r="2.5"/></g>
+</svg>
